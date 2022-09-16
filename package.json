@@ -4,7 +4,7 @@
   "description": "This is node js leadrning course",
   "main": "index.js",
   "scripts": {
-    "start": "node ./lessons/process.js"
+    "start": "nodemon rprocess.js"
   },
   "repository": {
     "type": "git",
