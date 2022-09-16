@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is node js leadrning course",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon rprocess.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mongoose": "^6.6.1"
   }
 }
