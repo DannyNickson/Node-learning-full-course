@@ -1,14 +1,9 @@
 import Posts from "../Schema/Posts/Posts.js";
-import PostService from "../Services/PostService.js";
 
-class PostController {
-    async create(req, res) {
-        try {
-            const post = await PostService.create(req.body)
-            res.json(post)
-        } catch (error) {
-            res.status(500).json(error)
-        }
+class PostService{
+    async create(post) {
+            const createdPost = await Posts.create(post)
+            return createdPost;
     }
     async getAll(req, res) {
         try {
@@ -18,13 +13,12 @@ class PostController {
             res.status(500).json(error)
         }
     }
-    async getOne(req, res) {
-        try {
-            const posts = await PostService.getOne(req.params.id)
-            return res.json(posts);
-        } catch (error) {
-            res.status(500).json(error)
-        }
+    async getOne(id) {
+            if (!id) {
+                throw new Error("Не указан ID");
+            }
+            const posts = await Posts.findById(id)
+            return posts;
     }
     async update(req, res) {
         try {
@@ -52,4 +46,4 @@ class PostController {
     }
 }
 
-export default new PostController;
+export default new PostService;
